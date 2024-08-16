@@ -9,10 +9,27 @@
 <body>
     <div class="container">
         <h1>Fake News Detector</h1>
-        <textarea id="newsInput" placeholder="Enter news text here..."></textarea>
-        <button onclick="detectFakeNews()">Check News</button>
-        <p id="result"></p>
+        <textarea id="newsInput" placeholder="Paste the news article here..."></textarea>
+        <button onclick="detectFakeNews()">Detect</button>
+        <div id="result"></div>
+        <div id="score"></div>
+
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <label>
+                <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()"> Dark Mode
+            </label>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <textarea id="commentInput" placeholder="Add a comment..."></textarea>
+            <button onclick="addComment()">Post Comment</button>
+            <div id="commentsList"></div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
