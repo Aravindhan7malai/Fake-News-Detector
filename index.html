@@ -9,7 +9,24 @@
 <body>
     <div class="container">
         <h1>Fake News Detector</h1>
-        <textarea id="newsInput" placeholder="Paste the news article here..."></textarea>
+
+        <!-- New Section: Options to select what to analyze -->
+        <div class="options">
+            <label>
+                <input type="radio" name="option" value="content" checked> Content
+            </label>
+            <label>
+                <input type="radio" name="option" value="title"> Title
+            </label>
+            <label>
+                <input type="radio" name="option" value="url"> URL
+            </label>
+            <label>
+                <input type="radio" name="option" value="any"> Any
+            </label>
+        </div>
+
+        <textarea id="newsInput" placeholder="Paste the content, title, or URL here..."></textarea>
         <button onclick="detectFakeNews()">Detect</button>
         <div id="result"></div>
         <div id="score"></div>
