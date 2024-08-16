@@ -3,19 +3,50 @@ function detectFakeNews() {
     const resultElement = document.getElementById('result');
     const scoreElement = document.getElementById('score');
     
-    const fakeKeywords = [
+    const fakeKeywordsContent = [
         'clickbait', 'scam', 'unreliable', 'fake', 'hoax', 
         'conspiracy', 'unverified', 'mind-control', 'martian colony'
     ];
-    
+
+    const fakeKeywordsTitle = [
+        'shocking', 'you won’t believe', 'top secret', 'exclusive', 
+        'breaking', 'scandal', 'urgent'
+    ];
+
+    const fakeKeywordsURL = [
+        'fakenews.com', 'scamalerts.net', 'clickbait.site', 'hoaxweb.org'
+    ];
+
     let isFake = false;
     let score = 0;
-    fakeKeywords.forEach(keyword => {
-        if (newsText.toLowerCase().includes(keyword)) {
-            isFake = true;
-            score += 10;
-        }
-    });
+    let selectedOption = document.querySelector('input[name="option"]:checked').value;
+
+    if (selectedOption === 'content' || selectedOption === 'any') {
+        fakeKeywordsContent.forEach(keyword => {
+            if (newsText.toLowerCase().includes(keyword)) {
+                isFake = true;
+                score += 10;
+            }
+        });
+    }
+
+    if (selectedOption === 'title' || selectedOption === 'any') {
+        fakeKeywordsTitle.forEach(keyword => {
+            if (newsText.toLowerCase().includes(keyword)) {
+                isFake = true;
+                score += 10;
+            }
+        });
+    }
+
+    if (selectedOption === 'url' || selectedOption === 'any') {
+        fakeKeywordsURL.forEach(keyword => {
+            if (newsText.toLowerCase().includes(keyword)) {
+                isFake = true;
+                score += 10;
+            }
+        });
+    }
 
     if (isFake) {
         resultElement.textContent = 'This news might be fake.';
